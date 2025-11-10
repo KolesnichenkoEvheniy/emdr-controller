@@ -5,15 +5,17 @@ ESP32-based therapeutic device that creates a bouncing light animation on a WS28
 ## Features
 
 - **Smooth bouncing animation**: 5-LED "snake" that moves back and forth across the strip
-- **Real-time speed control**: Adjustable via potentiometer (10-200ms intervals)
+- **Real-time speed control**: Adjustable via potentiometer (5-80ms intervals)
 - **Brightness control**: Variable brightness from dim to full intensity
-- **Color cycling**: Smooth HSV color transitions with gradient tail effect
+- **Color selection**: 7 EMDR-friendly colors switchable via button
+- **Warm LED default**: Therapeutic warm white color optimized for EMDR therapy
 
 ## Hardware Requirements
 
-- ESP32 development board
-- WS2812B addressable LED strip (60 LEDs default)
+- ESP32 development board (esp-wrover-kit)
+- WS2812B addressable LED strip (104 LEDs default)
 - 2x potentiometers for speed and brightness control
+- 1x push button for color selection
 - Connecting wires
 
 ## Pin Configuration
@@ -23,6 +25,7 @@ ESP32-based therapeutic device that creates a bouncing light animation on a WS28
 | LED Strip | GPIO 13 | Data line |
 | Speed Control | GPIO 34 | Potentiometer (ADC1_CH6) |
 | Brightness Control | GPIO 35 | Potentiometer (ADC1_CH7) |
+| Color Button | GPIO 32 | Push button (pull-up, connect to GND) |
 
 ## Quick Start
 
