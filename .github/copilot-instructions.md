@@ -4,24 +4,25 @@
 ESP32-based EMDR therapeutic device controlling WS2812B addressable LED strip with bouncing snake animation.
 
 ## Hardware Configuration
-- **Board**: ESP32 (esp32dev)
+- **Board**: ESP32 (esp-wrover-kit)
 - **LED Strip**: WS2812B (COLOR_ORDER: GRB)
 - **LED Data Pin**: GPIO 13
 - **Speed Control**: Potentiometer on GPIO 34 (ADC1_CH6)
 - **Brightness Control**: Potentiometer on GPIO 35 (ADC1_CH7)
-- **Default LED Count**: 60
+- **Default LED Count**: 104
 - **Snake Length**: 5 LEDs
 
 ## Core Logic
 1. **Snake Movement**: Single direction movement (+1 or -1 position per update)
 2. **Bounce Behavior**: Direction reverses when snake head reaches position 0 or NUM_LEDS-1
-3. **Visual Effect**: HSV color cycling with gradient tail (each segment progressively dimmer)
+3. **Visual Effect**: Fixed warm LED color (HSV: hue=30, sat=180) with gradient tail (each segment progressively dimmer)
 4. **Non-blocking Updates**: millis()-based timing, no delay() usage
 
 ## Control Parameters
-- **Speed Range**: 10-200ms delay between updates (inverse mapping from ADC)
+- **Speed Range**: 5-80ms delay between updates (inverse mapping from ADC)
 - **Brightness Range**: 10-255 (direct mapping from ADC)
 - **ADC Resolution**: 12-bit (0-4095)
+- **Warm LED Color**: HSV(30, 180, varying brightness)
 
 ## Dependencies
 - FastLED library (^3.6.0)

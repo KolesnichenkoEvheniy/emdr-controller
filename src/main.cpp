@@ -1,7 +1,7 @@
 #include <FastLED.h>
 
 #define LED_PIN 13
-#define NUM_LEDS 60
+#define NUM_LEDS 104
 #define LED_TYPE WS2812B
 #define COLOR_ORDER GRB
 
@@ -9,8 +9,8 @@
 #define BRIGHTNESS_POT_PIN 35
 
 #define SNAKE_LENGTH 5
-#define MIN_DELAY 10
-#define MAX_DELAY 200
+#define MIN_DELAY 5
+#define MAX_DELAY 80
 
 CRGB leds[NUM_LEDS];
 
@@ -55,9 +55,8 @@ void loop() {
             int pos = snakePos - (i * direction);
             
             if (pos >= 0 && pos < NUM_LEDS) {
-                uint8_t hue = (currentMillis / 10) % 255;
                 uint8_t brightness = 255 - (i * (255 / SNAKE_LENGTH));
-                leds[pos] = CHSV(hue, 255, brightness);
+                leds[pos] = CHSV(30, 180, brightness);
             }
         }
         
