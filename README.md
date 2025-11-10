@@ -40,16 +40,33 @@ ESP32-based therapeutic device that creates a bouncing light animation on a WS28
 ## Dependencies
 
 - [FastLED](https://github.com/FastLED/FastLED) ^3.6.0 (automatically installed)
+- [OneButton](https://github.com/mathertel/OneButton) ^2.0.3 (automatically installed)
 
 ## Usage
 
-- Turn the **speed potentiometer** to adjust animation speed
-- Turn the **brightness potentiometer** to adjust LED intensity
-- The LED snake will continuously bounce between the strip endpoints
+- **Speed potentiometer**: Adjust animation speed (faster/slower)
+- **Brightness potentiometer**: Control LED intensity
+- **Color button**:
+  - **Short press**: Cycle through 7 colors (Warm White → Red → Green → Blue → Yellow → Cyan → Magenta)
+  - **Long press** (2 seconds): Return to default warm white color
+- The LED snake continuously bounces between the strip endpoints
+
+## Available Colors
+
+1. Warm White (default) - Therapeutic warm tone
+2. Red
+3. Green
+4. Blue
+5. Yellow
+6. Cyan
+7. Magenta
 
 ## Configuration
 
-Modify `main.cpp` to customize:
-- `NUM_LEDS`: Number of LEDs in your strip (default: 60)
+Modify `src/main.cpp` to customize:
+- `NUM_LEDS`: Number of LEDs in your strip (default: 104)
 - `SNAKE_LENGTH`: Length of the moving animation (default: 5)
-- Speed and brightness ranges in the mapping functions
+- Speed range: `MIN_DELAY` (5ms) to `MAX_DELAY` (80ms)
+- Color array in `COLORS[]` for custom color palette
+
+For detailed wiring instructions, see [WIRING.md](WIRING.md)
